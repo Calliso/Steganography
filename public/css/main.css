@@ -1,0 +1,21 @@
+body{
+    background-color: gray;
+}
+
+.square{
+    margin: 1%;
+    color: rgb(83, 68, 68);
+    text-align: center;
+    font-size: 32px;
+    border-style: solid;
+}
+
+.images{
+    width:50px;
+    object-fit: fill;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

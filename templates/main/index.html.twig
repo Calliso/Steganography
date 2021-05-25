@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class = "col-3 square">
+            <a href="/hide">
+                <br>
+                <img src = "img/HIDE.png"><br>
+                HIDE
+            </a>
+        </div>
+        <div class = "col-3 square">
+            <a href="/show">
+                <br>
+                <img src = "img/SHOW.png"><br>
+                SHOW
+            </a>
+        </div> 
+        
+        <div class = "col-3 square">
+            <a href="/encrypt">
+                <br>
+                <img src = "img/ENCRYPT.png"><br>
+                ENCRYPT
+            </a>
+        </div>       
+    </div>          
+
+{% endblock %}
