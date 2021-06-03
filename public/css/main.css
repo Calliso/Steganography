@@ -10,6 +10,11 @@ body{
     border-style: solid;
 }
 
+.square2{
+    margin: 1%;
+    color: rgb(83, 68, 68);
+    text-align: center;
+}
 .images{
     width:50px;
     object-fit: fill;

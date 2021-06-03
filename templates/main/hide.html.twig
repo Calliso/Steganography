@@ -5,23 +5,16 @@
 {% block body %}
     <div class="row justify-content-center">
         
-        <div class = "col-3 square">
-            <br><img src = "img/koala.jpg"  class="img-thumbnail"><br>
-            1
-        </div>
-        <div class = "col-3 square">
-            <br><img src = "img/banana.jpg"  class="img-thumbnail"><br>
-            2
-        </div>  
-        <div class = "col-3 square">
-            <br><img src = "img/mushroom.jpg"  class="img-thumbnail"><br>
-            3
-        </div>  
-        <div class = "col-3 square">
-            <br><img src = "img/elephant.jpg"  class="img-thumbnail"><br>
-            4
-        </div> 
-        <form action 
+        <div class = "col-3 square2">
+        {{form(form)}}
+
+        <br><br>
+        <a href="/">
+            <button class = 'btn btn-success'>TAKE ME HOME</button>
+         </a>
+
+         {{mess}}<br>
+         {{check}}
     </div>          
 
 {% endblock %}

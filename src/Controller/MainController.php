@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use \Steganography;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class MainController extends AbstractController
 {
@@ -22,14 +25,32 @@ class MainController extends AbstractController
     /**
      * @Route("/hide", name="hide")
      */
-    public function hide(): Response
+    public function hide(Request $request): Response
     {
+        $defaultData = ['message' => 'Message to encode'];
+        $form = $this->createFormBuilder($defaultData)
+            ->add('message', TextType::class)
+            ->add('Send', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        $check = "Nie zapisano wiadomosci do zakodowania.";
+        $data = $form->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $check = "Wiadomosc zapisana";
+        }
+
+        // ... render the form
         $file = 'img/mushroom.jpg';
-        $message = 'HIDE BIG ELEPHANT';
+        $message = $data['message'];
         $stg = new Steganography($file, $message);
         $stg ->steganize($file, $message);
         return $this->render('main/hide.html.twig', [
             'controller_name' => 'MainController',
+            'form' => $form->createView(),
+            'mess' => $message,
+            'check' => $check,
         ]);
     }
 
